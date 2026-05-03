@@ -8,9 +8,11 @@ app.use(express.json());
 
 // Routes
 const urlRoutes = require('./routes/url');
-//const { redirectToOriginalURL } = require('./controllers/url');
+const { redirectToOriginalURL } = require('./controllers/url');
 app.use('/url', urlRoutes);
-//app.get('/:code', redirectToOriginalURL);
+app.get('/:code', redirectToOriginalURL);
 
 // Start the server
-app.listen(PORT, () => console.log(`Server running on PORT: ${PORT}`));
+app.listen(PORT, () => {
+    console.log(`Server is running on port: ${PORT}`);
+});
